@@ -8,27 +8,23 @@ $(document).ready(function() {
 	var computerFranken = frankenPolicy[Math.floor(Math.random() * frankenPolicy.length)];
 	var computerMitch = mitchPolicy[Math.floor(Math.random() * mitchPolicy.length)];
 
-	var frankenWins = 0;
-	var mitchWins = 0;
+	var wins = 0;
+	var losses = 0;
 
-	var frankenLosses = 0;
-	var mitchLosses = 0;
-
-	var Franken = Math.floor(Math.random() * 200 ) + 150;
-	var Mitch = Math.floor(Math.random() * 200 ) + 150;
+	var h1 = Math.floor(Math.random() * 200 ) + 150;
+	var h2 = Math.floor(Math.random() * 200 ) + 150;
 	var number1 = Math.floor(Math.random()* 30) + 10;
 	var number2 = Math.floor(Math.random()* 30) + 10;
 	var number3 = Math.floor(Math.random()* 30) + 10;
 	var number4 = Math.floor(Math.random()* 30) + 10;
 
-	$('#frankenhealthcounter').html(Franken);
-	$('#mitchhealthcounter').html(Mitch);
+	$('#player1healthcounter').html(h1);
+	$('#player2healthcounter').html(h2);
 
-	$('#frankenwins').html(frankenWins);
-	$('#frankenlosses').html(frankenLosses);
+	$('#wins').html(wins);
+	$('#losses').html(losses);
 
-	$('#mitchwins').html(mitchWins);
-	$('#mitchlosses').html(mitchLosses);
+	$('#senator2clickarea').hide()
 
 	$('#refresh').on('click', function() {
 		reset()
@@ -44,78 +40,92 @@ function refresh () {
 }
 
 function reset() {
-  Franken = Math.floor(Math.random() * 200 ) + 150;
-	Mitch = Math.floor(Math.random() * 200 ) + 150;
-	number1 = Math.floor(Math.random()* 30) + 10;
-	number2 = Math.floor(Math.random()* 30) + 10;
-	number3 = Math.floor(Math.random()* 30) + 10;
-	number4 = Math.floor(Math.random()* 30) + 10;
+  h1 = Math.floor(Math.random() * 200 ) + 150;
+	h2 = Math.floor(Math.random() * 200 ) + 150;
 
-	$('#frankenhealthcounter').html(Franken)
-	$('#mitchhealthcounter').html(Mitch)
+	$('#player1healthcounter').html(h1)
+	$('#player2healthcounter').html(h2)
 	$('#div3').html("")
 }
 
 function tally() {
-if (Franken <= 0) {
-		    frankenLosses++;
-		    mitchWins++;
-		    $('#frankenlosses').html(frankenLosses)
-		    $('#mitchwins').html(mitchWins)
+if (h1 <= 0) {
+		    losses++;
+		    $('#losses').html(losses)
 		    reset()
 		    }
-else if (Mitch <= 0) {
-		    mitchLosses++;
-		    frankenWins++;
-		    $('#frankenwins').html(frankenWins)
-		    $('#mitchlosses').html(mitchLosses)
+else if (h2 <= 0) {
+		    wins++;
+		    $('#wins').html(wins)
 		    reset()
 		    }
 }
 
 function updateFranken(number, saying) {
 	if (!turn) return;
-	Mitch = Mitch - number;
+	h2 = h2 - number;
 	$('#div3').prepend(saying.replace('{number}', number).replace('{computerFranken}', computerFranken));
-	$('#mitchhealthcounter').html(Mitch);
+	$('#player2healthcounter').html(h2);
 	refresh();
-	tally();
+	setTimeout(tally, 3000);
 	turn = !turn;
+	
 }
 
 function updateMitch(number, saying) {
 	if (turn) return;
-	Franken = Franken - number;
-	$('#frankenhealthcounter').html(Franken);
+	h1 = h1 - number;
+	$('#player1healthcounter').html(h1);
 	$('#div3').prepend(saying.replace('{number}', number).replace('{computerMitch}', computerMitch));
 	refresh();
-	tally();
+	setTimeout(tally, 3000);
 	turn = !turn;
 }
 
+
 $('#button-1').on('click', function() {
 		updateFranken(number1, "<p><b>Al Franken</b> just had a debate on {computerFranken}, reducing Mitch's status by {number}</p>" );
-		setTimeout(execute, 3000)
+		if (h2 > 30) {
+			setTimeout(execute, 1000)
+			}
+		if (h2 < 30) {
+			setTimeout(func2, 2000)
+		}
 });
 
 $('#button-2').on('click', function() {
 		if (!turn) return;
-		Franken = Franken + number2;
-		$('#frankenhealthcounter').html(Franken);
+		h1 = h1 + number2;
+		$('#player1healthcounter').html(h1);
 		$('#div3').prepend("<p><b>Al Franken</b> just got " + number2 + " Votes!!!</p>");
 		refresh();
 		turn = !turn;
-		setTimeout(execute, 3000)
+		if (h2 > 30) {
+			setTimeout(execute, 1000)
+			}
+		if (h2 < 30) {
+			setTimeout(func2, 2000)
+		}
 });
 
 $('#button-3').on('click', function() {
 		updateFranken(number3, "<p><b>Al Franken</b> just passed legislation on {computerFranken}, reducing Mitch's status by {number}</p>" );
-		setTimeout(execute, 3000)
+		if (h2 > 30) {
+			setTimeout(execute, 1000)
+			}
+		if (h2 < 30) {
+			setTimeout(func2, 2000)
+		}
 });
 
 $('#button-4').on('click', function() {
 		updateFranken(number4, "<p><b>Al Franken</b> just gave a speech on {computerFranken}, reducing Mitch's status by {number}</p>" );
-		setTimeout(execute, 3000)
+		if (h2 > 30) {
+			setTimeout(execute, 1000)
+			}
+		if (h2 < 30) {
+			setTimeout(func2, 2000)
+		}
 });
 
 
@@ -125,9 +135,9 @@ function func1() {
 }
 
 function func2() {
-   if (turn) return;
-		Mitch = Mitch + number2;
-		$('#mitchhealthcounter').html(Mitch);
+   	if (turn) return;
+		h2 = h2 + number2;
+		$('#player2healthcounter').html(h2);
 		$('#div3').prepend("<p><b>Mitch</b> just got " + number2 + " Votes!!!</p>");
 		refresh();
 		turn = !turn;
@@ -156,7 +166,7 @@ function execute(){
 
 
 
-
-
-
 })
+
+
+

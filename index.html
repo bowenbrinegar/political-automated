@@ -22,7 +22,7 @@
 	<div class='container'>
 		<div class="col-lg-4">
 			<div class="panel">
-			  <div class="panel-heading franken"><img id="senators" src='assets/images/franken.jpg'></div>
+			  <div id='player1area' class="panel-heading franken"><img id='senators' src='assets/images/candidates/franken.jpg'></div>
 			  <div class="panel-body clickarea">
 
 				
@@ -38,10 +38,10 @@
 			</div>
 			<div class="panel panel-default">
 
-			  <div class="panel-heading">Al Franken's Congressional Record</div>
+			  <div class="panel-heading">Your Political Record</div>
 			  <div class="panel-body">
-			  	<h2 class='tally'>Wins: <span id='frankenwins'></span></h2>
-			  	<h2 class='tally'>Losses: <span id='frankenlosses'></span></h2>
+			  	<h2 class='tally'>Wins: <span id='wins'></span></h2>
+			  	<h2 class='tally'>Losses: <span id='losses'></span></h2>
 			  </div>
 
 			</div>
@@ -59,12 +59,12 @@
 			  </div>
 			  <div class="panel-body">
 			  	<div id='healthcontainer'>
-			  		<div id='frankenhealth'>
-			  			<h5><span id='frankenhealthcounter'></span></h5>
+			  		<div id='health1'>
+			  			<h5><span id='player1healthcounter'></span></h5>
 			  			<h2>Franken</h2>
 			  		</div>
-			  		<div id='mitchhealth'>
-			  			<h5><span id='mitchhealthcounter'></span><h5>
+			  		<div id='health2'>
+			  			<h5><span id='player2healthcounter'></span><h5>
 			  			<h2>Mitch</h2>
 			  		</div>
 			  	</div>
@@ -91,35 +91,49 @@
 
 		<div class="col-lg-4">
 			<div class="panel">
-			  <div class="panel-heading mitch"><img id="senators" src='assets/images/mitch.jpg'></div>
-			  <div class="panel-body clickarea">
-
-
-
+			  <div class="panel-heading mitch"><img id="senators" src='assets/images/candidates/mitch.jpg'></div>
+			  <div id='senator2clickarea' class="panel-body clickarea">
 		  		<div id='crystalscontainer'>
 						<button id='button-5'><img class='politicalattack' src='assets/images/debate.png'></button>
 						<button id='button-6'><img class='politicalattack' src='assets/images/vote.png'></button>
 						<button id='button-7'><img class='politicalattack' src='assets/images/legislation.png'></button>
 						<button id='button-8'><img class='politicalattack' src='assets/images/speech.png'></button>
 					</div>
-
-
-
 				</div>
 			</div>
-			<div class="panel panel-default">
-
-			  <div class="panel-heading">Mitch McConnell's Congressional Record</div>
-			  <div class="panel-body">
-			  	<h2 class='tally'>Wins: <span id='mitchwins'></span></h2>
-			  	<h2 class='tally'>Losses: <span id='mitchlosses'></span></h2>
-			  </div>
-
+			<div class='row'>	
+				<div class='col-lg-6'>
+					<div class="panel panel-default">
+					  <div class="panel-heading">Player 1</div>
+					  	<div class="panel-body">
+					  	<div id='choiceContainer'>
+						  	<button id='button-9'><img class='choiceImages' src='assets/images/candidates/franken.jpg'></button>
+						  	<button id='button-10'><img class='choiceImages' src='assets/images/candidates/bernie.jpg'></button>
+						  	<button id='button-11'><img class='choiceImages' src='assets/images/candidates/jon.jpeg'></button>
+						  	<button id='button-12'><img class='choiceImages' src='assets/images/candidates/colbert.jpg'></button>
+					  	</div>
+					  </div>
+					</div>
+				</div>
+				<div class='col-lg-6'>
+					<div class="panel panel-default">
+					  <div class="panel-heading">Player 2</div>
+					  	<div class="panel-body">
+					  	<div id='choiceContainer'>
+						  	<button id='button-13'><img class='choiceImages' src='assets/images/candidates/mitch.jpg'></button>
+						  	<button id='button-14'><img class='choiceImages' src='assets/images/candidates/cruz.jpg'></button>
+						  	<button id='button-15'><img class='choiceImages' src='assets/images/candidates/bush.jpg'></button>
+						  	<button id='button-16'><img class='choiceImages' src='assets/images/candidates/trump.jpg'></button>
+					  	</div>
+					  </div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>

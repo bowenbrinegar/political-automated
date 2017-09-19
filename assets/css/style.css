@@ -40,11 +40,11 @@ h4 {
 	width: 30px;
 }
 
-#frankenhealth {
+#health1 {
 	float: left;
 }
 
-#mitchhealth {
+#health2 {
 	float: right;
 }
 
@@ -124,4 +124,17 @@ button:hover {
 
 h2.tally {
 	margin: 10px 0px 10px 0px;
+}
+
+/*choices css*/
+
+.choiceImages {
+	height: 110px;
+	width: 110px;
+	margin: 0px 0px 10px 0px;
+}
+#choiceContainer {
+	height: 480px;
+	width: 110px;
+	margin: 0px 0px 0px 10px;
 }
