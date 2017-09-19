@@ -20,10 +20,6 @@ $(document).ready(function() {
 	var number2 = Math.floor(Math.random()* 30) + 10;
 	var number3 = Math.floor(Math.random()* 30) + 10;
 	var number4 = Math.floor(Math.random()* 30) + 10;
-	var number5 = Math.floor(Math.random()* 30) + 10;
-	var number6 = Math.floor(Math.random()* 30) + 10;
-	var number7 = Math.floor(Math.random()* 30) + 10;
-	var number8 = Math.floor(Math.random()* 30) + 10;
 
 	$('#frankenhealthcounter').html(Franken);
 	$('#mitchhealthcounter').html(Mitch);
@@ -45,10 +41,6 @@ function refresh () {
 	number2 = Math.floor(Math.random()* 30) + 10;
 	number3 = Math.floor(Math.random()* 30) + 10;
 	number4 = Math.floor(Math.random()* 30) + 10;
-	number5 = Math.floor(Math.random()* 30) + 10;
-	number6 = Math.floor(Math.random()* 30) + 10;
-	number7 = Math.floor(Math.random()* 30) + 10;
-	number8 = Math.floor(Math.random()* 30) + 10;
 }
 
 function reset() {
@@ -58,10 +50,6 @@ function reset() {
 	number2 = Math.floor(Math.random()* 30) + 10;
 	number3 = Math.floor(Math.random()* 30) + 10;
 	number4 = Math.floor(Math.random()* 30) + 10;
-	number5 = Math.floor(Math.random()* 30) + 10;
-	number6 = Math.floor(Math.random()* 30) + 10;
-	number7 = Math.floor(Math.random()* 30) + 10;
-	number8 = Math.floor(Math.random()* 30) + 10;
 
 	$('#frankenhealthcounter').html(Franken)
 	$('#mitchhealthcounter').html(Mitch)
@@ -107,6 +95,7 @@ function updateMitch(number, saying) {
 
 $('#button-1').on('click', function() {
 		updateFranken(number1, "<p><b>Al Franken</b> just had a debate on {computerFranken}, reducing Mitch's status by {number}</p>" );
+		setTimeout(execute, 3000)
 });
 
 $('#button-2').on('click', function() {
@@ -116,36 +105,57 @@ $('#button-2').on('click', function() {
 		$('#div3').prepend("<p><b>Al Franken</b> just got " + number2 + " Votes!!!</p>");
 		refresh();
 		turn = !turn;
+		setTimeout(execute, 3000)
 });
 
 $('#button-3').on('click', function() {
 		updateFranken(number3, "<p><b>Al Franken</b> just passed legislation on {computerFranken}, reducing Mitch's status by {number}</p>" );
+		setTimeout(execute, 3000)
 });
 
 $('#button-4').on('click', function() {
 		updateFranken(number4, "<p><b>Al Franken</b> just gave a speech on {computerFranken}, reducing Mitch's status by {number}</p>" );
+		setTimeout(execute, 3000)
 });
 
-$('#button-5').on('click', function() {
-		updateMitch(number5, "<p><b>Mitch</b> just had a debate on {computerMitch}, reducing Franken's status by {number}</p>" );
-});
 
-$('#button-6').on('click', function() {
-		if (turn) return;
-		Mitch = Mitch + number6;
+
+function func1() {
+   updateMitch(number1, "<p><b>Mitch</b> just had a debate on {computerMitch}, reducing Franken's status by {number}</p>" );
+}
+
+function func2() {
+   if (turn) return;
+		Mitch = Mitch + number2;
 		$('#mitchhealthcounter').html(Mitch);
-		$('#div3').prepend("<p><b>Mitch</b> just got " + number6 + " Votes!!!</p>");
+		$('#div3').prepend("<p><b>Mitch</b> just got " + number2 + " Votes!!!</p>");
 		refresh();
 		turn = !turn;
-});
+}
 
-$('#button-7').on('click', function() {
-		updateMitch(number7, "<p><b>Mitch</b> just passed legislation on {computerMitch}, reducing Franken's status by {number}</p>" );
-});
+function func3() {
+   updateMitch(number3, "<p><b>Mitch</b> just passed legislation on {computerMitch}, reducing Franken's status by {number}</p>" );
+}
 
-$('#button-8').on('click', function() {
-		updateMitch(number8, "<p><b>Mitch</b> just gave a speech on {computerMitch}, reducing Franken's status by {number}</p>" );
-});
+function func4() {
+   updateMitch(number4, "<p><b>Mitch</b> just gave a speech on {computerMitch}, reducing Franken's status by {number}</p>" );
+}
+
+function random(){
+  var functionNumber  = [1,2,3,4];
+  var i = functionNumber[Math.floor(Math.random() * functionNumber.length)];
+  if(i<=0) return random();
+  return i;
+}
+function execute(){
+  var i = random();
+  eval('func'+i+'()');
+}
+
+
+
+
+
 
 
 
