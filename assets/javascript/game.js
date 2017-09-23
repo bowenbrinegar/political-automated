@@ -117,7 +117,6 @@ characterChoice()
 characterChoice2()
 
 
-
 $('#choiceContainer').on("click", "button", function() {
     var value = $(this).val();
     if (value === 'franken') {
@@ -230,67 +229,71 @@ function updatePlayer(number, saying) {
 	$('#div3').prepend(saying.replace('{number}', number).replace('{computerFranken}', computerFranken).replace('{computerMitch}', computerMitch).replace('{player1}', characters[key].name).replace('{player2}', characters[key2].name));
 	refresh();
 	setTimeout(tally, 3000);	
-	turn = !turn;
 };
 
-// if (this or this)
 
 // player on click events, and rules for excute random response function
 
-$('#button-1').on('click', function() {
-		checker = 'h2minus';
-		if (key == 'franken') {
-			updatePlayer(number1, "<p><b>{player1}</b> just had a debate on {computerFranken}, reducing {player2}'s status by {number}</p>" )
-		}
-		else if (key == 'bernie') {
-			updatePlayer(number1, "<p><b>{player1}</b> just passed legislation {computerFranken}, reducing {player2}'s status by {number}</p>" )
-		}
-		else if (key == 'colbert') {
-			updatePlayer(number1, "<p><b>{player1}</b> just danced, reducing {player2}'s status by {number}</p>" )
-		};	
-		rules();
-});
+$('#crystalscontainer').on("click", "button", function() {
+    var value = $(this).val();
+    if (value === '1') {
+    	checker = 'h2minus';
+			switch(key) {
+						case 'franken':
+							updatePlayer(number1, "<p><b>{player1}</b> just had a debate on {computerFranken}, reducing {player2}'s status by {number}</p>" );
+							break;	
+						case 'bernie':
+							updatePlayer(number1, "<p><b>{player1}</b> just passed legislation {computerFranken}, reducing {player2}'s status by {number}</p>" )
+							break;	
+						case 'colbert':
+							updatePlayer(number1, "<p><b>{player1}</b> just danced, reducing {player2}'s status by {number}</p>" )
+							break;	
+			}
+    }  
+    else if (value === "2") {
+    	checker = 'h1plus';
+		  switch(key) {
+						case 'franken':
+							updatePlayer(number2, "<p><b>{player1}</b> just got {number} Votes!!!</p>");
+							break;	
+						case 'bernie':
+							updatePlayer(number2, "<p><b>{player1}</b> just got {number} Votes!!!</p>");
+							break;	
+						case 'colbert':
+							updatePlayer(number2, "<p><b>{player1}</b> just got {number} more Viewers!!!</p>");
+							break;	
+			}
+    }
+    else if (value === "3") {
+			checker = 'h2minus';
+			switch(key) {
+						case 'franken':
+							updatePlayer(number3, "<p><b>{player1}</b> just passed legislation on {computerFranken}, reducing {player2}'s status by {number}</p>" );
+							break;	
+						case 'bernie':
+							updatePlayer(number3, "<p><b>{player1}</b> just wrote a book on {computerFranken}, reducing {player2}'s status by {number}</p>" );
+							break;	
+						case 'colbert':
+							updatePlayer(number3, "<p><b>{player1}</b> just found new material on {computerFranken}, reducing {player2}'s status by {number}</p>" );
+							break;	
+			}
+    }
+    else if (value === "4") {
+			checker = 'h2minus';
+			switch(key) {
+						case 'franken':
+							updatePlayer(number4, "<p><b>{player1}</b> just gave a speech on {computerFranken}, reducing {player2}'s status by {number}</p>" );
+							break;	
+						case 'bernie':
+							updatePlayer(number4, "<p><b>{player1}</b> had a debate on {computerFranken}, reducing {player2}'s status by {number}</p>" );
+							break;	
+						case 'colbert':
+							updatePlayer(number4, "<p><b>{player1}</b> just aired a show, reducing {player2}'s status by {number}</p>" );
+							break;	
+			}
+    }
 
-$('#button-2').on('click', function() {
-		checker = 'h1plus';
-		if (key == 'franken') {
-			updatePlayer(number2, "<p><b>{player1}</b> just got {number} Votes!!!</p>");
-		}
-		else if (key == 'bernie') {
-			updatePlayer(number2, "<p><b>{player1}</b> just got {number} Votes!!!</p>");
-		}
-		else if (key == 'colbert') {
-			updatePlayer(number2, "<p><b>{player1}</b> just got {number} more Viewers!!!</p>");
-		};
-		rules();
-});
-
-$('#button-3').on('click', function() {
-		checker = 'h2minus';
-		if (key == 'franken') {
-			updatePlayer(number3, "<p><b>{player1}</b> just passed legislation on {computerFranken}, reducing {player2}'s status by {number}</p>" );
-		}
-		else if (key == 'bernie') {
-			updatePlayer(number3, "<p><b>{player1}</b> just wrote a book on {computerFranken}, reducing {player2}'s status by {number}</p>" );
-		}
-		else if (key == 'colbert') {
-			updatePlayer(number3, "<p><b>{player1}</b> just found new material on {computerFranken}, reducing {player2}'s status by {number}</p>" );
-		}
-		rules();
-});
-
-$('#button-4').on('click', function() {
-		checker = 'h2minus';
-		if (key == 'franken') {
-			updatePlayer(number4, "<p><b>{player1}</b> just gave a speech on {computerFranken}, reducing {player2}'s status by {number}</p>" );
-		}
-		else if (key == 'bernie') {
-			updatePlayer(number4, "<p><b>{player1}</b> had a debate on {computerFranken}, reducing {player2}'s status by {number}</p>" );
-		}
-		else if (key == 'colbert') {
-			updatePlayer(number4, "<p><b>{player1}</b> just aired a show, reducing {player2}'s status by {number}</p>" );
-		}
-		rules();
+    rules();
 });
 
 
