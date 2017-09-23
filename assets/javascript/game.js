@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	var turn = true;
+	var checker;
 
 	var key = 'franken';
 	var key2 = 'mitch';
@@ -203,8 +204,6 @@ function rules() {
 		}
 }
 
-var checker;
-
 // handles turn change, news feed updates, health updates
 
 function updatePlayer(number, saying) {
@@ -360,7 +359,6 @@ function random(){
 function execute(){
   var i = random();
   eval('func'+i+'()');
-  console.log("this")
 };
 
 
