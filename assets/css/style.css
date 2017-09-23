@@ -134,7 +134,12 @@ h2.tally {
 	margin: 0px 0px 10px 0px;
 }
 #choiceContainer {
-	height: 480px;
+	height: 360px;
+	width: 110px;
+	margin: 0px 0px 0px 10px;
+}
+#choiceContainer2 {
+	height: 360px;
 	width: 110px;
 	margin: 0px 0px 0px 10px;
 }
