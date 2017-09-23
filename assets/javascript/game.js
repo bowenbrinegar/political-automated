@@ -195,13 +195,12 @@ else if (h2 <= 0) {
 };
 
 function rules() {
-	execute();
-	// if (h2 >= 30) {
-	// 		setTimeout(execute, 1000);
-	// 	}
-	// else if (h2 < 30) {
-	// 		setTimeout(func2, 2000);
-	// 	}
+	if (h2 >= 30) {
+			setTimeout(execute, 1000);
+		}
+	else if (h2 < 30) {
+			setTimeout(func2, 2000);
+		}
 }
 
 var checker;
@@ -209,8 +208,6 @@ var checker;
 // handles turn change, news feed updates, health updates
 
 function updatePlayer(number, saying) {
-	if (!turn) return;
-	refresh();
 	switch(checker) {
           case 'h2minus': 
               h2 = h2 - number;
@@ -232,6 +229,7 @@ function updatePlayer(number, saying) {
               break;
       };
 	$('#div3').prepend(saying.replace('{number}', number).replace('{computerFranken}', computerFranken).replace('{computerMitch}', computerMitch).replace('{player1}', characters[key].name).replace('{player2}', characters[key2].name));
+	refresh();
 	setTimeout(tally, 3000);	
 	turn = !turn;
 };
@@ -251,7 +249,7 @@ $('#button-1').on('click', function() {
 		else if (key == 'colbert') {
 			updatePlayer(number1, "<p><b>{player1}</b> just danced, reducing {player2}'s status by {number}</p>" )
 		};	
-		func3();
+		rules();
 });
 
 $('#button-2').on('click', function() {
@@ -364,7 +362,6 @@ function execute(){
   eval('func'+i+'()');
   console.log("this")
 };
-
 
 
 })
