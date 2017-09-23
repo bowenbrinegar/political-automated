@@ -235,6 +235,7 @@ function updatePlayer(number, saying) {
 // player on click events, and rules for excute random response function
 
 $('#crystalscontainer').on("click", "button", function() {
+    if (!turn) return;
     var value = $(this).val();
     if (value === '1') {
     	checker = 'h2minus';
@@ -292,7 +293,7 @@ $('#crystalscontainer').on("click", "button", function() {
 							break;	
 			}
     }
-
+    turn = !turn;
     rules();
 });
 
@@ -310,6 +311,7 @@ function func1() {
   else if (key2 == 'trump') {
  		updatePlayer(number1, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
+  turn = !turn;
 };
 
 function func2() {
@@ -323,6 +325,7 @@ function func2() {
 	else if (key2 == 'trump') {
 		updatePlayer(number2, "<p><b>{player2}</b> just got {number} Votes!!!</p>");
 	}
+	turn = !turn;
 };
 
 function func3() {
@@ -336,6 +339,7 @@ function func3() {
   else if (key2 == 'trump') {
  		updatePlayer(number3, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
+  turn = !turn;
 };
 
 function func4() {
@@ -349,6 +353,7 @@ function func4() {
   else if (key2 == 'trump') {
  		updatePlayer(number4, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
+  turn = !turn;
 };
 
 // randomizes which function get executed from stackoverflow
