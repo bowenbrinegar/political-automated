@@ -190,7 +190,6 @@ else if (h2 <= 0) {
 		    $('#wins').html(wins);
 		    reset();
 		    showChoices();
-		    turn = !turn;
 		    }
 };
 
@@ -309,7 +308,7 @@ function func1() {
  		updatePlayer(number1, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
   else if (key2 == 'trump') {
- 		updatePlayer(number1, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
+ 		updatePlayer(number1, "<p><b>{player2}</b> just freestyled on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
   turn = !turn;
 };
@@ -337,7 +336,7 @@ function func3() {
  		updatePlayer(number3, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
   else if (key2 == 'trump') {
- 		updatePlayer(number3, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
+ 		updatePlayer(number3, "<p><b>{player2}</b> just gave an executive order on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
   turn = !turn;
 };
@@ -351,7 +350,7 @@ function func4() {
  		updatePlayer(number4, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
   else if (key2 == 'trump') {
- 		updatePlayer(number4, "<p><b>{player2}</b> just had a debate on {computerMitch}, reducing {player1}'s status by {number}</p>" );
+ 		updatePlayer(number4, "<p><b>{player2}</b> just tweeted about {computerMitch}, reducing {player1}'s status by {number}</p>" );
   }
   turn = !turn;
 };
