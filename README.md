@@ -1,6 +1,6 @@
 # Political Wars
 
-(https://bowenbrinegar.github.io/political-automated/) /
+(https://bowenbrinegar.github.io/political-automated/) \
 This project was a combination of both of the assigned homeworks, whose goals were \
 to get students to Manipulate DOM elements and get more familiar with Javascript \
 through a "game format"
